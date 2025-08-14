@@ -1,6 +1,6 @@
 import turtle
 
-turtle.bgcolor('red')
+turtle.bgcolor('green')
 
 neck = turtle.Turtle()
 neck.speed(15)
