@@ -1,48 +1,40 @@
 import turtle
 import math
+import colorsys 
 
-# Set up the screen
 screen = turtle.Screen()
 screen.bgcolor("black")
-screen.title("Animated Flower Pattern")
+screen.title("Animated Flower")
 screen.tracer(0)
 
-# Create a turtle
 pen = turtle.Turtle()
-pen.speed(0)
+pen.speed(100)
 pen.hideturtle()
 
 def draw_animated_flower():
-    """Draws a colorful, animated flower pattern."""
     angle = 0
     hue = 0
     
     while True:
-        # Set the color based on the hue
-        color = turtle.hsv_to_rgb(hue, 1, 1)
+        color = colorsys.hsv_to_rgb(hue, 1, 1)
         pen.pencolor(color)
         
-        # Clear the screen for the next frame of the animation
         pen.clear()
         
-        # Draw the flower pattern for the current frame
         for i in range(2):
             for _ in range(90):
-                pen.forward(200)
+                pen.forward(150)
                 pen.left(math.sin(math.radians(angle)) * 50 + 91)
         
-        # Update the screen
         screen.update()
         
-        # Increment the angle and hue for the animation and color change
         angle += 1
         hue += 0.005
         if hue > 1:
             hue -= 1
 
-# Start the drawing
 try:
     draw_animated_flower()
     turtle.done()
 except turtle.Terminator:
-    pass  # To handle closing the window gracefully
+    pass
